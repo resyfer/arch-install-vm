@@ -27,7 +27,7 @@ echo -n "Disk Name eg. sda, vda, etc. > "; read DISK_NAME; DISK="/dev/$DISK_NAME
 echo -n "Size Allocated for Arch Linux > "; read SIZE;
 echo -n "Name of Device > "; read HOST;
 clear
-fdisk -u -p $DISK << EOF
+fdisk $DISK << EOF
 g # GPT
 n # Partition 1 (EFI)
 1
