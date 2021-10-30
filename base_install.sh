@@ -71,7 +71,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 ### Change Root ###
 arch-chroot /mnt
-
+clear
 ### Hardware Clock ###
 hwclock --systohc
 
@@ -133,6 +133,5 @@ pacman -S networkmanager --noconfirm
 systemctl enable NetworkManager
 
 ## Fin ###
-umount /mnt
-echo "Rebooting..." && sleep 3
+exit
 reboot
