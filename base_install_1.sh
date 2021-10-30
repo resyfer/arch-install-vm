@@ -8,7 +8,7 @@ echo "/ _  \  __/\__ \ |_| |  _|  __/ |   "
 echo "\/ \_/\___||___/\__, |_|  \___|_|   "
 echo "                |___/               "
 echo ""
-echo "Arch Linux Installation Script by Resyfer"
+echo "Arch Linux Installation Script 1 by Resyfer"
 
 ### Reflector ###
 echo "------------------------------------------"
