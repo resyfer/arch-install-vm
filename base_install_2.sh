@@ -77,5 +77,4 @@ pacman -S networkmanager --noconfirm
 systemctl enable NetworkManager
 
 ## Fin ###
-exit
 reboot
