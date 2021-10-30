@@ -13,6 +13,7 @@ echo "Arch Linux Installation Script by Resyfer"
 ### Reflector ###
 echo "------------------------------------------"
 echo -n "Country Name > "; read COUNTRY
+echo -n "Device Name > "; read HOST
 pacman -Sy reflector --noconfirm
 reflector -c $COUNTRY -a 48 --sort rate --save /etc/pacman.d/mirrorlist
 
