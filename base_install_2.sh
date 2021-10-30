@@ -51,7 +51,7 @@ clear
 
 ### GRUB ###
 pacman -S grub efibootmgr os-prober --noconfirm
-grub-install --target=x86_64-efi --efi-directory=EFI --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/EFI --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 ### Net CTL ###
