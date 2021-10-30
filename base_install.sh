@@ -13,7 +13,7 @@ echo "Arch Linux Installation Script by Resyfer"
 ### Reflector ###
 echo "------------------------------------------"
 echo -n "Country Name > "; read COUNTRY
-pacman -Sy reflector
+pacman -Sy reflector --noconfirm
 reflector -c COUNTRY -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 
 ### Update System Clock ###
@@ -52,16 +52,16 @@ EOF
 
 ### Mount Disks ###
 # EFI Partition
-mkfs.fat -F32 "${DISK_NAME}1"
+mkfs.fat -F32 "${DISK}1"
 mkdir /mnt/EFI
-mount "${DISK_NAME}1" /mnt/EFI
+mount "${DISK}1" /mnt/EFI
 
 # Swap Partition
-mkswap "${DISK_NAME}2"
-swapon "${DISK_NAME}2"
+mkswap "${DISK}2"
+swapon "${DISK}2"
 
-mkfs.ext4 "${DISK_NAME}3"
-mount "${DISK_NAME}3" /mnt
+mkfs.ext4 "${DISK}3"
+mount "${DISK}3" /mnt
 
 ### Pacstrap ###
 pacstrap /mnt base base-devel linux linux-firmware
