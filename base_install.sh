@@ -28,25 +28,25 @@ echo -n "Size Allocated for Arch Linux > "; read SIZE;
 echo -n "Name of Device > "; read HOST;
 clear
 fdisk $DISK << EOF
-g # GPT
-n # Partition 1 (EFI)
+g
+n
 1
 
-+550M #EFI Partition Size
-n #Partition 2 (Swap)
++550M
+n
 2
 
 +2G
-n #Parition 3 (/)
+n
 3
 
 
-t # Change Type of EFI
-1 # Partition 1
-1 # EFI System
-t # Change Type of Swap
-2 # Partition 2
-19 # Linux Swap
+t
+1
+1
+t
+2
+19
 w
 EOF
 
