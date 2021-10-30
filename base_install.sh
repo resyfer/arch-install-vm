@@ -1,7 +1,6 @@
-#! /usr/bin/bash
+#!/usr/bin/env bash
 
 ### Intro ###
-cd
 echo "   __                  __           "
 echo "  /__\ ___  ___ _   _ / _| ___ _ __ "
 echo " / \/// _ \/ __| | | | |_ / _ \ '__|"
@@ -10,6 +9,12 @@ echo "\/ \_/\___||___/\__, |_|  \___|_|   "
 echo "                |___/               "
 echo ""
 echo "Arch Linux Installation Script by Resyfer"
+
+### Reflector ###
+echo "------------------------------------------"
+echo -n "Country Name > "; read COUNTRY
+pacman -Sy reflector
+reflector -c COUNTRY -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 
 ### Update System Clock ###
 timedatectl set-ntp true
@@ -128,5 +133,6 @@ pacman -S networkmanager --noconfirm
 systemctl enable NetworkManager
 
 ## Fin ###
-exit
+umount /mnt
+echo "Rebooting..." && sleep 3
 reboot
