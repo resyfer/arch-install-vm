@@ -14,7 +14,7 @@ echo "Arch Linux Installation Script by Resyfer"
 echo "------------------------------------------"
 echo -n "Country Name > "; read COUNTRY
 pacman -Sy reflector --noconfirm
-reflector -c COUNTRY -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+reflector -c $COUNTRY -a 48 --sort rate --save /etc/pacman.d/mirrorlist
 
 ### Update System Clock ###
 timedatectl set-ntp true
