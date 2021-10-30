@@ -1,6 +1,7 @@
 #! /usr/bin/bash
 
 ### Intro ###
+cd
 echo "   __                  __           "
 echo "  /__\ ___  ___ _   _ / _| ___ _ __ "
 echo " / \/// _ \/ __| | | | |_ / _ \ '__|"
@@ -94,24 +95,24 @@ passwd
 clear
 
 ### User ###
-echo "Username > "; read USER;
+echo -n "Username > "; read USER;
 useradd -G wheel,audio,video,storage,optical -m $USER
 passwd $USER
 clear
 
 ### GRUB ###
-pacman -S grub efibootmgr os-prober
+pacman -S grub efibootmgr os-prober --noconfirm
 grub-install --target=x86_64-efi --efi-directory=EFI --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 ### Net CTL ###
-pacman -S netctl
+pacman -S netctl --noconfirm
 cd /etc/netctl
 cp examples/ethernet-dhcp .
 clear
 ip link
 echo "------------------------------------------"
-echo "Name of Ethernet Device > "; read ETHERNET
+echo -n "Name of Ethernet Device > "; read ETHERNET
 echo "------------------------------------------"
 echo "Description='A basic dhcp ethernet connection'" >> ethernet-dhcp
 echo "Interface=$ETHERNET" >> ethernet-dhcp
