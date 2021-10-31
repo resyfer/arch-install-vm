@@ -50,18 +50,16 @@ t
 w
 EOF
 
-### Mount Disks ###
-# EFI Partition
-mkdir /mnt/EFI
+### Format Disks ###
 mkfs.fat -F32 "${DISK}1"
-mount "${DISK}1" /mnt/EFI
-
-# Swap Partition
 mkswap "${DISK}2"
-swapon "${DISK}2"
-
 mkfs.ext4 "${DISK}3"
+
+### Mount Disks ###
+swapon "${DISK}2"
 mount "${DISK}3" /mnt
+mkdir /mnt/EFI
+mount "${DISK}1" /mnt/EFI
 
 ### Pacstrap ###
 pacstrap /mnt base base-devel linux linux-firmware
