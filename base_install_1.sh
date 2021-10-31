@@ -52,8 +52,8 @@ EOF
 
 ### Mount Disks ###
 # EFI Partition
-mkfs.fat -F32 "${DISK}1"
 mkdir /mnt/EFI
+mkfs.fat -F32 "${DISK}1"
 mount "${DISK}1" /mnt/EFI
 
 # Swap Partition
