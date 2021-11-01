@@ -84,5 +84,8 @@ systemctl enable dhcpcd
 pacman -S networkmanager --noconfirm
 systemctl enable NetworkManager
 
+### Git clone
+git clone https://github.com/resyfer/arch-install-vm.git
+
 ## Fin ###
 exit
