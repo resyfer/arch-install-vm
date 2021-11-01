@@ -22,14 +22,15 @@ hwclock --systohc
 
 ### Locale Gen ###
 pacman -S sudo nano vim --noconfirm
-echo "en_US.UTF-8 UTF-8" >> ./etc/locale.gen
+sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 cd && echo "LANG=en_US.UTF-8" >> ./etc/locale.conf
 
 #### Visudo
-echo "root ALL = (ALL) ALL" >> ./etc/sudoers.tmp
-echo "%wheel ALL = (ALL) ALL" >> ./etc/sudoers.tmp
-echo "@includedir /etc/sudoers.d" >> ./etc/sudoers.tmp
+sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
+
+### Parallel Download
+sed -i 's/^#Para/Para/' /etc/pacman.conf
 
 ### Network Configuration ###
 echo "$HOST" >> ./etc/hostname
@@ -71,7 +72,7 @@ echo "IP=dhcp" >> ethernet-dhcp
 echo "DHCPClient=dhcpcd" >> ethernet-dhcp
 cd
 systemctl enable dhcpcd
-systemctl start dhcpcd
+# systemctl start dhcpcd
 
 ### Network Manager
 pacman -S networkmanager --noconfirm
