@@ -10,23 +10,19 @@ echo "                |___/               "
 echo ""
 echo "Arch Linux Installation Script 1 by Resyfer"
 
-### Reflector ###
 echo "------------------------------------------"
 echo -n "Country Name > "; read COUNTRY
-pacman -Sy reflector --noconfirm
-reflector -c $COUNTRY -a 48 --sort rate --save /etc/pacman.d/mirrorlist
 
 ### Update System Clock ###
 timedatectl set-ntp true
 clear
+
 ### Partition Disk ###
 echo "=========================================="
 fdisk -l
 echo "------------------------------------------"
 echo -n "Disk Name eg. sda, vda, etc. > "; read DISK_NAME; DISK="/dev/$DISK_NAME"
-echo -n "Size Allocated for Arch Linux > "; read SIZE;
-echo -n "Name of Device > "; read HOST;
-clear
+
 fdisk $DISK << EOF
 g
 n
@@ -61,6 +57,10 @@ mount "${DISK}3" /mnt
 mkdir /mnt/EFI
 mount "${DISK}1" /mnt/EFI
 
+### Reflector ###
+pacman -Sy reflector --noconfirm
+reflector -c $COUNTRY -a 48 --sort rate --save /etc/pacman.d/mirrorlist
+
 ### Pacstrap ###
 pacstrap /mnt base base-devel linux linux-firmware
 
@@ -68,4 +68,5 @@ pacstrap /mnt base base-devel linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 ### Change Root ###
+clear
 arch-chroot /mnt
