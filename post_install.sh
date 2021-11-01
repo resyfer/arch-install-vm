@@ -55,7 +55,7 @@ PACKAGES=(
   'zip'
 )
 
-for PACKAGE in {PACKAGES[@]}; do
+for PACKAGE in "${PACKAGES[@]}"; do
   echo Installing: "$PACKAGE"
   sudo pacman -S "$PACKAGE" --noconfirm
 done
