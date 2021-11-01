@@ -84,7 +84,5 @@ systemctl enable dhcpcd
 pacman -S networkmanager --noconfirm
 systemctl enable NetworkManager
 
-### Changing Default Resolution
-
 ## Fin ###
 exit
