@@ -58,6 +58,7 @@ clear
 ### GRUB ###
 pacman -S grub efibootmgr os-prober --noconfirm
 grub-install --target=x86_64-efi --efi-directory=/EFI --bootloader-id=GRUB #! ERROR: can't find the /EFI or EFI directory
+sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet video=1360x768"/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 ### Net CTL ###
@@ -81,6 +82,8 @@ systemctl enable dhcpcd
 ### Network Manager
 pacman -S networkmanager --noconfirm
 systemctl enable NetworkManager
+
+### Changing Default Resolution
 
 ## Fin ###
 exit
