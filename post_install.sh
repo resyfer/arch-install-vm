@@ -8,7 +8,7 @@ sudo systemctl enable --now reflector.timer
 clear
 
 ### Installation ###
-PACKAGES = (
+PACKAGES=(
   'alacritty'
   'alsa-utils'
   'ark'
@@ -65,4 +65,4 @@ done
 sed -i 's/^#display-setup-script=/display-setup-script=xrandr --output Virtual-1 --mode 1360x768/' /etc/lightdm/lightdm.conf
 
 ### LightDM
-sudo systemctl enable lightdm
+sudo systemctl enable lightdm 
