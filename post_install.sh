@@ -1,5 +1,4 @@
 ### Connect to Internet
-sudo nmtui
 clear
 sudo systemctl enable NetworkManager
 
@@ -57,8 +56,8 @@ PACKAGES=(
 )
 
 for PACKAGE in {PACKAGES[@]}; do
-  echo "Installing: ${PACKAGE}"
-  pacman -S $PACKAGE --noconfirm
+  echo Installing: "$PACKAGE"
+  sudo pacman -S "$PACKAGE" --noconfirm
 done
 
 ### Default Display Settings
