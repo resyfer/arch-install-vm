@@ -63,5 +63,5 @@ done
 ### Default Display Settings
 sed -i 's/^#display-setup-script=/display-setup-script=xrandr --output Virtual-1 --mode 1360x768/' /etc/lightdm/lightdm.conf
 
-### LightDM
-sudo systemctl enable lightdm 
+### Reboot
+reboot
