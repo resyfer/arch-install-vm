@@ -10,10 +10,12 @@ echo "                |___/               "
 echo ""
 echo "Arch Linux Installation Script by Resyfer"
 
-### Reflector ###
 echo "------------------------------------------"
 echo -n "Country Name > "; read COUNTRY
 echo -n "Device Name > "; read HOST
+echo -n "Username > "; read USER;
+
+### Reflector ###
 pacman -Sy reflector --noconfirm
 reflector -c $COUNTRY -a 48 --sort rate --save /etc/pacman.d/mirrorlist
 
@@ -41,13 +43,15 @@ echo "127.0.1.1 $HOST" >> ./etc/hosts
 ### Initramfs ###
 mkinitcpio -P
 clear
+
 ### Password
+echo "Password for root"
 passwd
 clear
 
 ### User ###
-echo -n "Username > "; read USER;
 useradd -G wheel,audio,video,storage,optical -m $USER
+echo "Password for $USER"
 passwd $USER
 clear
 
@@ -79,4 +83,4 @@ pacman -S networkmanager --noconfirm
 systemctl enable NetworkManager
 
 ## Fin ###
-reboot
+exit
