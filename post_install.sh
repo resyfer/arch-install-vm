@@ -1,10 +1,10 @@
-### Connect to Internet
-clear
-sudo systemctl enable NetworkManager
+echo "If packages are not installing"
+echo "Try connecting to internet using"
+echo "sudo nmtui"
+echo "----------------------------------"
 
 ### Optimizations ###
 sudo systemctl enable --now reflector.timer
-clear
 
 ### Installation ###
 PACKAGES=(
