@@ -70,6 +70,7 @@ ip link
 echo "------------------------------------------"
 echo -n "Name of Ethernet Device > "; read ETHERNET
 echo "------------------------------------------"
+sed -i 's/^#DHCPClient=dhcpcd/DHCPClient=dhcpcd/' /ethernet-dhcp
 echo "Description='A basic dhcp ethernet connection'" >> ethernet-dhcp
 echo "Interface=$ETHERNET" >> ethernet-dhcp
 echo "Connection=ethernet" >> ethernet-dhcp

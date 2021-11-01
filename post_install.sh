@@ -1,24 +1,30 @@
+### Connect to Internet
+sudo nmtui
+clear
+sudo systemctl enable NetworkManager
+
 ### Optimizations ###
 sudo systemctl enable --now reflector.timer
+clear
 
 ### Installation ###
 PACKAGES = (
   'alacritty'
-  'chromium'
+  'alsa-utils'
+  'ark'
+  'autoconf'
+  'automake'
   'network-manager'
   'network-manager-applet'
+  'chromium'
+  'curl'
   'dialogue'
-  'wpa_supplicant'
   'mtools'
-  'alsa-utils'
   'pulseaudio'
   'nano'
   'gedit'
   'xorg'
   'xterm'
-  'ark'
-  'autoconf'
-  'automake'
   'code-insiders'
   'gparted'
   'htop'
@@ -45,8 +51,8 @@ PACKAGES = (
   'archlinux-wallpaper'
   'vim'
   'wget'
-  'curl'
   'which'
+  'wpa_supplicant'
   'zip'
 )
 
