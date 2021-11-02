@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 echo "If packages are not installing"
 echo "Try connecting to internet using"
 echo "sudo nmtui"
@@ -52,6 +54,7 @@ PACKAGES=(
   'vim'
   'wget'
   'which'
+  'fish'
   'wpa_supplicant'
   'zip'
 )
@@ -75,7 +78,8 @@ sed -i 's/^xterm -geometry 80x50+494+51 &/exec i3/' .xinitrc
 sed -i 's/^xterm -geometry 80x20+494-0 &/ /' .xinitrc
 sed -i 's/^exec xterm -geometry 80x66+0+0 -name login/ /' .xinitrc
 
+### Bash Alias
+echo "fish" >> ./.bashrc
+
 ### Reboot
 reboot
-
-#TODO: yay, i3 setup
