@@ -78,8 +78,10 @@ sed -i 's/^xterm -geometry 80x50+494+51 &/exec i3/' .xinitrc
 sed -i 's/^xterm -geometry 80x20+494-0 &/ /' .xinitrc
 sed -i 's/^exec xterm -geometry 80x66+0+0 -name login/ /' .xinitrc
 
-### Bash Alias
+### Fish
 echo "fish" >> ./.bashrc
+curl -L https://get.oh-my.fish | fish
+omf install kawasaki
 
 ### Reboot
 reboot
