@@ -15,4 +15,5 @@ cp ~/linux-config/alacritty/alacritty.yml ~/.config/alacritty
 xrandr
 echo "---------------------------------------------"
 echo -n "Please select preferred resolution > "; read RESOLUTION
+xrandr -s "$RESOLUTION"
 echo "xrandr -s $RESOLUTION" >> ~/.config/fish/config.fish
