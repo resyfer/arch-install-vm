@@ -82,5 +82,13 @@ sed -i 's/^exec xterm -geometry 80x66+0+0 -name login/ /' .xinitrc
 echo "fish" >> ./.bashrc
 curl -L https://get.oh-my.fish | fish
 
+### Font
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip
+mkdir .fonts
+mv CascadiaCode.zip .fonts
+cd .fonts
+unzip CascadiaCode.zip
+rm CascadiaCode.zip
+
 ### Reboot
 reboot
