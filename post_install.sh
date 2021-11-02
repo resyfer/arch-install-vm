@@ -23,6 +23,7 @@ PACKAGES=(
   'nano'
   'gedit'
   'xorg'
+  'xorg-xinit'
   'xterm'
   'code-insiders'
   'gparted'
@@ -60,5 +61,21 @@ for PACKAGE in "${PACKAGES[@]}"; do
   sudo pacman -S "$PACKAGE" --noconfirm
 done
 
+### YAY AUR
+sudo git clone https://aur.archlinux.org/yay-git.git
+cd yay-git
+makepkg -si --noconfirm
+cd
+
+### XInit
+cp /etc/X11/xinit/xinitrc .xinitrc
+sed -i 's/^twm &/nitrogen --restore &/' .xinitrc
+sed -i 's/^xclock -geometry 50x50-1+1 &/picom &/' .xinitrc
+sed -i 's/^xterm -geometry 80x50+494+51 &/exec i3/' .xinitrc
+sed -i 's/^xterm -geometry 80x20+494-0 &/ /' .xinitrc
+sed -i 's/^exec xterm -geometry 80x66+0+0 -name login/ /' .xinitrc
+
 ### Reboot
 reboot
+
+#TODO: yay, i3 setup
