@@ -10,3 +10,9 @@ cp ~/linux-config/fish/init.fish .
 ### Alacritty
 mkdir ~/.config/alacritty
 cp ~/linux-config/alacritty/alacritty.yml ~/.config/alacritty
+
+### Resolution
+xrandr
+echo "---------------------------------------------"
+echo -n "Please select preferred resolution > "; read RESOLUTION
+echo "xrandr -s $RESOLUTION" >> ~/.config/fish/config.fish
