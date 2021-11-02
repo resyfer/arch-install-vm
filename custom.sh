@@ -3,5 +3,5 @@
 ### Theme
 git clone https://github.com/resyfer/linux-config.git
 cp ./linux-config/fish/config.fish ~/.config/fish/
-cd \$OMF_CONFIG
+cd ~/.config/omf
 cp ~/linux-config/fish/init.fish .
